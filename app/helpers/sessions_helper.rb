@@ -4,7 +4,7 @@ module SessionsHelper
     # sign the user in
     cookies.permanent[:remember_token] = { value: user.remember_token,
                                  expires: 20.years.from_now }
-    current_user = user
+    self.current_user = user
   end
 
   def signed_in?
@@ -20,7 +20,7 @@ module SessionsHelper
   end
 
   def sign_out
-    current_user = nil
+    self.current_user = nil
     cookies.delete(:remember_token)
   end
 end
