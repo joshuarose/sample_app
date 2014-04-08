@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
 
   def feed
     # This is only a proto-feed
-    microposts
+    Micropost.where(user_id: id)
   end
 
   private
